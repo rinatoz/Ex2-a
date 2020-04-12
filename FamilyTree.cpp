@@ -1,11 +1,10 @@
 #include <string>
 #include "FamilyTree.hpp"
 #include <exception>
-#include <bits/stdc++.h>
 using namespace family;
 
-struct err1 : std::exception {
-    const char* what() const throw("The tree cannot handle this relation\n");
+struct err1: public std::exception {
+    const char* what() const noexcept { return "The tree cannot handle this relation\n"; }
 };
 
 string Tree::find(string name)
