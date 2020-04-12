@@ -9,8 +9,8 @@ using namespace std;
 TEST_CASE("addFather&addMother&relation") 
 {
     Tree T("rinat");
-    T.addFather("rinat", "ravit");
-    T.addMother("rinat", "rafi");
+    T.addFather("rinat", "rafi");
+    T.addMother("rinat", "ravit");
     CHECK(T.relation("rinat") == string("me"));
     CHECK(T.relation("rafi") == string("father"));
     CHECK(T.relation("ravit") == string("mother"));
@@ -73,7 +73,7 @@ TEST_CASE("addFather&addMother&relation")
     CHECK(T.find("grandmother") == string("mazal"));
     CHECK(T.find("grandfather") == string("moshe"));
 
-    T.addFather("moshe", "moshe11");
+    T.addFather("moshe", "moshe1");
     T.addMother("moshe", "rivka");
     CHECK(T.find("great-grandfather") == string("moshe1"));
     CHECK(T.find("great-grandmother") == string("rivka"));
