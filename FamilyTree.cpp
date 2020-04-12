@@ -9,8 +9,7 @@ struct err1 : std::exception {
 
 string Tree::find(string name)
 {
-    Tree* child = findreg(this, name);
-    if (child != nullptr)return child->child;
+
      throw err1();
     return "";
 }
