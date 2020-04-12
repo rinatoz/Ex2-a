@@ -87,7 +87,7 @@ TEST_CASE("addFather&addMother&relation")
     CHECK_THROWS(T.find("Uncle"));
     CHECK_THROWS(T.find("grand"));
     CHECK_THROWS(T.find("jjffj"));
-    CHECK_THROWS(T.find("g");
+    CHECK_THROWS(T.find("g"));
 }
 
 TEST_CASE("Test 1 remove") {
