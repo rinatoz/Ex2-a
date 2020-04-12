@@ -3,11 +3,17 @@
 #include <exception>
 using namespace family;
 
-struct err1 : public std::exception
-{
-public:
-    const char* what() const noexcept { return "The tree cannot handle this relation"; }
+struct err1 : std::exception {
+    const char* what() const noexcept { return "The tree cannot handle this relation\n"; }
 };
+
+string Tree::find(string name)
+{
+    Tree* child = findreg(this, name);
+    if (child != nullptr)return child->child;
+     throw err1();
+    return "";
+}
 
 Tree* Tree::findchild(Tree* root, string name)
 {
@@ -129,13 +135,6 @@ string Tree::relation(string name)
     Tree* child = findchild(this, name);
     if (child == nullptr) return "unrelated";
     return child->reg;
-}
-
-string Tree::find(string name)
-{
-    Tree* child = findreg(this, name);
-    if (child == nullptr)  throw err1();
-    return child->child;
 }
 
 void Tree::remove(string name) 
