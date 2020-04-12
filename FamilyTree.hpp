@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string.h>
+#include <exception>
 using namespace std;
 namespace family
 {
