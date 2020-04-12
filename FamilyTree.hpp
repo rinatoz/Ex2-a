@@ -37,10 +37,7 @@ namespace family
 	public:
 		const char* what() const noexcept { return "error"; }
 	};
-	void f() throw()
-	{
-		throw err();
-	}
+
 }
 
 
