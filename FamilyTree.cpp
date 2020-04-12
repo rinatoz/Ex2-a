@@ -1,17 +1,19 @@
 #include <string>
 #include "FamilyTree.hpp"
 #include <exception>
+#include <bits/stdc++.h>
 using namespace family;
 
 struct err1 : std::exception {
-    const char* what() const noexcept { return "The tree cannot handle this relation\n"; }
+    const char* what() const throw("The tree cannot handle this relation\n");
 };
 
 string Tree::find(string name)
 {
-
-     throw err1();
-    return "";
+  Tree* child = findreg(this, name);
+  if (child != nullptr)return child->child;
+  throw err1();
+  return "";
 }
 
 Tree* Tree::findchild(Tree* root, string name)
