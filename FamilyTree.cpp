@@ -2,6 +2,12 @@
 #include "FamilyTree.hpp"
 using namespace family;
 
+class err : public std::exception
+{
+public:
+    const char* what() const noexcept { return "error"; }
+};
+
 Tree* Tree::findchild(Tree* root, string name)
 {
     if (root->child == name)
@@ -127,7 +133,7 @@ string Tree::relation(string name)
 string Tree::find(string name)
 {
     Tree* child = findreg(this, name);
-    if (child == nullptr)  throw runtime_error("The tree cannot handle the"+name +" relation");
+    if (child == nullptr)  throw err();
     return child->child;
 }
 
