@@ -76,6 +76,8 @@ Tree* Tree::addFather(string childName, string fatherName)
         throw runtime_error(childName + " is not in the tree"); 
     }
 
+    return nullptr;
+
 }
 
 Tree* Tree::addMother(string childName, string motherName)
@@ -112,7 +114,7 @@ Tree* Tree::addMother(string childName, string motherName)
     {
         throw runtime_error(childName + " is not in the tree");
     }
-
+    return nullptr;
 }
 
 string Tree::relation(string name)
