@@ -6,10 +6,10 @@ using namespace family;
 #include <string>
 using namespace std;
 
-TEST_CASE("addFather&addMother&relation") {
-
+TEST_CASE("addFather&addMother&relation") 
+{
     Tree T("rinat");
-    T.addFather("rinat", "ravit")
+    T.addFather("rinat", "ravit");
     T.addMother("rinat", "rafi");
     CHECK(T.relation("rinat") == string("me"));
     CHECK(T.relation("rafi") == string("father"));
@@ -18,7 +18,7 @@ TEST_CASE("addFather&addMother&relation") {
     CHECK_THROWS(T.addFather("rinat", "jfj"));
     CHECK_THROWS(T.addMother("rinat", "fjdjdf"));
 
-    T.addMother("ravit", "mazal")
+    T.addMother("ravit", "mazal");
     T.addFather("ravit", "moshe");
     CHECK(T.relation("mazal") == string("grandmother"));
     CHECK(T.relation("moshe") == string("grandfather"));
@@ -26,21 +26,21 @@ TEST_CASE("addFather&addMother&relation") {
     CHECK_THROWS(T.addFather("ravit", "fjfjfj"));
     CHECK_THROWS(T.addFather("notexist", "jfjjffj")); 
 
-    T.addFather("rafi", "ibo")
+    T.addFather("rafi", "ibo");
     T.addMother("rafi", "rina");
     CHECK(T.relation("ibo") == string("grandfather"));
     CHECK(T.relation("rina") == string("grandmother"));
     CHECK_THROWS(T.addFather("rafi", "mcmc"));
     CHECK_THROWS(T.addMother("rafi", "cjcjcj"));
 
-    T.addFather("ibo", "ibof")
+    T.addFather("ibo", "ibof");
     T.addMother("ibo", "ibom");
     CHECK(T.relation("ibof") == string("great-grandfather"));
     CHECK(T.relation("ibom") == string("great-grandmother"));
     CHECK_THROWS(T.addFather("ibo", "mcmc"));
     CHECK_THROWS(T.addMother("ibo", "cjcjcj"));
 
-    T.addFather("ibom", "ibomf")
+    T.addFather("ibom", "ibomf");
     T.addMother("ibom", "ibomm");
     CHECK(T.relation("ibomf") == string("great-great-grandfather"));
     CHECK(T.relation("ibomm") == string("great-great-grandmother"));
@@ -62,24 +62,24 @@ TEST_CASE("addFather&addMother&relation") {
  TEST_CASE("addFather&addMother&find") {
 
     Tree T("rinat");
-    T.addFather("rinat", "ravit")
+    T.addFather("rinat", "ravit");
     T.addMother("rinat", "rafi");
     CHECK(T.find("me") == string("rinat"));
     CHECK(T.find("father") == string("rafi"));
     CHECK(T.find("mother") == string("ravit"));
 
-    T.addMother("ravit", "mazal")
+    T.addMother("ravit", "mazal");
     T.addFather("ravit", "moshe");
     CHECK(T.find("grandmother") == string("mazal"));
     CHECK(T.find("grandfather") == string("moshe"));
 
-    T.addFather("mazal", "moshe1")
+    T.addFather("mazal", "moshe1");
     T.addMother("mazal", "rivka");
     CHECK(T.find("great-grandfather") == string("moshe1"));
     CHECK(T.find("great-grandmother") == string("rivka"));
 
 
-    T.addFather("rivka", "name")
+    T.addFather("rivka", "name");
     T.addMother("rivka", "name1");
     CHECK(T.find("great-great-grandfather") == string("name"));
     CHECK(T.find("great-great-grandmother") == string("name1"));
