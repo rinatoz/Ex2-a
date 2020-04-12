@@ -93,7 +93,7 @@ TEST_CASE("Test 1 remove") {
     T.addMother("ravit", "mazal");
     T.addFather("ravit", "moshe");
     T.addMother("mazal", "rivka");
-    T.addMother("mazal", "simha");
+    T.addMother("rivka", "simha");
 
 
     CHECK_THROWS(T.remove("rinat")); //exception
