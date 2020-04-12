@@ -30,10 +30,10 @@ int main() {
 	cout << T.relation("Yosef") << endl;  // prints "me"
 
 	cout << T.find("mother") << endl;  // prints "Rachel"
-	cout << T.find("great-great-grandfather") << endl;  // prints "Avraham"
+	cout << T.find("great-great-grandfather") << endl;  // prints "Terah"
 	try {
 		cout << T.find("uncle") << endl;  // throws an exception
-	} catch (std::exception const &exc) {
+	} catch (const exception& ex) {
 	 	cout << ex.what() << endl;  // prints "The tree cannot handle the 'uncle' relation"
 	}
 
