@@ -6,12 +6,9 @@ using namespace family;
 class err1 : public std::exception
 {
 public:
-    const char* what() const noexcept { return "error"; }
+    const char* what() const noexcept { return "The tree cannot handle this relation"; }
 };
-void f() throw()
-{
-    throw err1();
-}
+
 Tree* Tree::findchild(Tree* root, string name)
 {
     if (root->child == name)
@@ -137,7 +134,7 @@ string Tree::relation(string name)
 string Tree::find(string name)
 {
     Tree* child = findreg(this, name);
-    if (child == nullptr)  f();
+    if (child == nullptr)  throw err1();
     return child->child;
 }
 
