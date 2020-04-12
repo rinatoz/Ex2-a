@@ -78,7 +78,7 @@ Tree Tree::addFather(string childName, string fatherName)
             {
                 string temp = "great-" +child->reg;
                 for (int j = 0; j < 6; j++) temp.pop_back();
-                temp += "mother";
+                temp += "father";
                 child->father->reg = temp;
             }
         }
