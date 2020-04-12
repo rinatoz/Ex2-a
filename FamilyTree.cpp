@@ -127,7 +127,7 @@ string Tree::relation(string name)
 string Tree::find(string name)
 {
     Tree* child = findreg(this, name);
-    if (child == nullptr)  throw runtime_error("the relation isnt exist");
+    if (child == nullptr)  throw err();
     return child->child;
 }
 

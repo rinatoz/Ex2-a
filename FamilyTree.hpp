@@ -31,6 +31,16 @@ namespace family
 		void print(Tree* root,int space);
 
 	};
+
+	class err : public std::exception
+	{
+	public:
+		const char* what() const noexcept { return "error"; }
+	};
+	void f() throw()
+	{
+		throw err();
+	}
 }
 
 
