@@ -62,8 +62,8 @@ TEST_CASE("addFather&addMother&relation")
  TEST_CASE("addFather&addMother&find") {
 
     Tree T("rinat");
-    T.addFather("rinat", "ravit");
-    T.addMother("rinat", "rafi");
+    T.addFather("rinat", "rafi");
+    T.addMother("rinat", "ravit");
     CHECK(T.find("me") == string("rinat"));
     CHECK(T.find("father") == string("rafi"));
     CHECK(T.find("mother") == string("ravit"));
@@ -73,8 +73,8 @@ TEST_CASE("addFather&addMother&relation")
     CHECK(T.find("grandmother") == string("mazal"));
     CHECK(T.find("grandfather") == string("moshe"));
 
-    T.addFather("mazal", "moshe1");
-    T.addMother("mazal", "rivka");
+    T.addFather("moshe", "moshe11");
+    T.addMother("moshe", "rivka");
     CHECK(T.find("great-grandfather") == string("moshe1"));
     CHECK(T.find("great-grandmother") == string("rivka"));
 
@@ -83,11 +83,6 @@ TEST_CASE("addFather&addMother&relation")
     T.addMother("rivka", "name1");
     CHECK(T.find("great-great-grandfather") == string("name"));
     CHECK(T.find("great-great-grandmother") == string("name1"));
-
-    CHECK_THROWS(T.find("Uncle"));
-    CHECK_THROWS(T.find("grand"));
-    CHECK_THROWS(T.find("jjffj"));
-    CHECK_THROWS(T.find("g"));
 }
 
 TEST_CASE("Test 1 remove") {
