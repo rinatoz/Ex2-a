@@ -33,7 +33,7 @@ int main() {
 	cout << T.find("great-great-grandfather") << endl;  // prints "Avraham"
 	try {
 		cout << T.find("uncle") << endl;  // throws an exception
-	} catch (const exception& ex) {
+	} catch (std::exception const &exc) {
 	 	cout << ex.what() << endl;  // prints "The tree cannot handle the 'uncle' relation"
 	}
 
