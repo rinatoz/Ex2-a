@@ -3,7 +3,7 @@
 #include <exception>
 using namespace family;
 
-class err1 : public std::exception
+struct err1 : public std::exception
 {
 public:
     const char* what() const noexcept { return "The tree cannot handle this relation"; }
