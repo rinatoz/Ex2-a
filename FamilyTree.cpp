@@ -1,13 +1,17 @@
 #include <string>
 #include "FamilyTree.hpp"
+#include <exception>
 using namespace family;
 
-class err : public std::exception
+class err1 : public std::exception
 {
 public:
     const char* what() const noexcept { return "error"; }
 };
-
+void f() throw()
+{
+    throw err1();
+}
 Tree* Tree::findchild(Tree* root, string name)
 {
     if (root->child == name)
@@ -133,7 +137,7 @@ string Tree::relation(string name)
 string Tree::find(string name)
 {
     Tree* child = findreg(this, name);
-    if (child == nullptr)  throw err();
+    if (child == nullptr)  f();
     return child->child;
 }
 
