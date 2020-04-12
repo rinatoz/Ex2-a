@@ -42,7 +42,7 @@ Tree* Tree::findreg(Tree* root, string reg)
     return nullptr;
 }
 
-Tree* Tree::addFather(string childName, string fatherName)
+Tree Tree::addFather(string childName, string fatherName)
 {
     Tree* child = findchild(this, childName);
     if (child != nullptr)
@@ -76,11 +76,11 @@ Tree* Tree::addFather(string childName, string fatherName)
         throw runtime_error(childName + " is not in the tree"); 
     }
 
-    return child->father;
+    return *this;
 
 }
 
-Tree* Tree::addMother(string childName, string motherName)
+Tree Tree::addMother(string childName, string motherName)
 {
     Tree* child = findchild(this, childName);
     if (child != nullptr)
@@ -114,7 +114,7 @@ Tree* Tree::addMother(string childName, string motherName)
     {
         throw runtime_error(childName + " is not in the tree");
     }
-    return child->mother;
+    return *this;
 }
 
 string Tree::relation(string name)

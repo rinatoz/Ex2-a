@@ -20,8 +20,8 @@ namespace family
 			this->father = nullptr;
 			this->mother = nullptr;
 		}
-		Tree* addFather(string childName, string fatherName);
-		Tree* addMother(string childName, string motherName);
+		Tree addFather(string childName, string fatherName);
+		Tree addMother(string childName, string motherName);
 		string relation(string name);
 		string find(string con);
 		void display();
