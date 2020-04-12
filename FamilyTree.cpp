@@ -74,9 +74,12 @@ Tree Tree::addFather(string childName, string fatherName)
             if (child->reg == "mother") child->father->reg = "grandfather";
             else
             if (child->reg == "grandmother") child->father->reg = "great-grandfather";
-            else{
-                string newreg = "great-" + child->reg;
-                child->father->reg = newreg;
+            else
+            {
+                string temp = "great-" +child->reg;
+                for (int j = 0; j < 6; j++) temp.pop_back();
+                temp += "mother";
+                child->father->reg = temp;
             }
         }
         else
@@ -114,8 +117,10 @@ Tree Tree::addMother(string childName, string motherName)
             if (child->reg == "grandmother") child->mother->reg = "great-grandmother";
             else
             {
-                string newreg = "great-" + child->reg;
-                child->mother->reg = newreg;
+                string temp = "great-" + child->reg;
+                for (int j = 0; j < 6; j++) temp.pop_back();
+                temp += "mother";
+                child->mother->reg = temp;
             }
         }
         else
@@ -163,4 +168,12 @@ void Tree::display()
 {
     cout << "display tree:" <<endl;
     print(this,0);
+}
+
+bool replace(std::string& str, const std::string& from, const std::string& to) {
+    size_t start_pos = str.find(from);
+    if (start_pos == std::string::npos)
+        return false;
+    str.replace(start_pos, from.length(), to);
+    return true;
 }
