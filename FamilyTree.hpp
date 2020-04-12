@@ -8,8 +8,10 @@ namespace family
 	public:
 		string child;
 		string reg;
+		string gender;
 		Tree* father;
 		Tree* mother;
+		Tree* son;
 
 		Tree(string name)
 		{
@@ -26,6 +28,7 @@ namespace family
 		void remove(string name);
 		Tree* findchild(Tree* root, string name);
 		Tree* findreg(Tree* root, string name);
+		void print(Tree* root,int space);
 
 	};
 }
