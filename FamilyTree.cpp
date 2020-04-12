@@ -69,11 +69,11 @@ Tree Tree::addFather(string childName, string fatherName)
             else
             if (child->reg == "father") child->father->reg = "grandfather";
             else
-            if (child->reg == "grandfather") child->father->reg ="great grandfather";
+            if (child->reg == "grandfather") child->father->reg ="great-grandfather";
             else
             if (child->reg == "mother") child->father->reg = "grandfather";
             else
-            if (child->reg == "grandmother") child->father->reg = "great-father";
+            if (child->reg == "grandmother") child->father->reg = "great-grandfather";
             else{
                 string newreg = "great-" + child->reg;
                 child->father->reg = newreg;
@@ -107,7 +107,7 @@ Tree Tree::addMother(string childName, string motherName)
             else
             if (child->reg == "father") child->mother->reg = "grandmother";
             else
-            if (child->reg == "grandfather") child->mother->reg = "great grandmother";
+            if (child->reg == "grandfather") child->mother->reg = "great-grandmother";
             else
             if (child->reg == "mother") child->mother->reg = "grandmother";
             else
