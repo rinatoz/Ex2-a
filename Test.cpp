@@ -84,28 +84,6 @@ TEST_CASE("addFather&addMother&relation")
     CHECK(T.find("great-great-grandmother") == string("name1"));
 }
 
-
-TEST_CASE("Test 3") 
-{
-    Tree T("idan");
-    T.addMother("idan", "ravit");
-    T.addFather("idan", "rafi");
-    T.addMother("ravit", "mazal");
-    T.addFather("ravit", "moshe");
-    T.addMother("moshe", "ilanit");
-    T.addFather("moshe", "igal");
-
-    CHECK_THROWS(T.remove("idan")); // exception
-    CHECK(T.find("grandfather") == string("moshe"));
-    CHECK(T.find("father") == string("rafi"));
-    T.remove("rafi");
-    CHECK_THROWS(T.find("father"));
-    CHECK(T.find("grandfather") == string("moshe")); 
-    CHECK(T.find("great-grandmother") == string("ilanit"));
-    CHECK(T.find("great-grandfather") == string("igal"));
-    T.remove("ilanit");
-    CHECK_THROWS(T.find("great-grandmother"));
-}
 TEST_CASE("addFather&addMother&relation2") 
 {
     Tree T("rinat");
