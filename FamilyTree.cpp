@@ -180,6 +180,6 @@ Node* del(Tree* cur)
      return nullptr;
   del(cur->father);
   del(cur->mother);
-  delete current;
+  delete cur;
   return nullptr;
 }
