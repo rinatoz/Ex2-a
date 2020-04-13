@@ -144,27 +144,19 @@ string Tree::relation(string name)
 
 void Tree::remove(string name) 
 {
- 	if ( this->father!= nullptr &&	this->father->son == name) {
-		delete this->father;
-		this->father = nullptr;
-		return;
-	}
-	else if (this->mother != nullptr && this->mother->son == name) {
-		delete this->mother;
-		this->mother =nullptr;
-		return;
-	}
-	else if(this->father!=nullptr)
-	{
-		this->father->remove(name);
-	}
-	else if (this->mother != nullptr) {
-		this->mother->remove(name);
-	}
-	else
-	{
-		throw runtime_error("cannot delete this name");
-	}
+ 	Tree* t= findchild(this, name);
+   string name1 = t->son->child;
+   Tree* t1 = findchild(this, name1);
+   if (t->gender == "male")
+   {
+       delete t1->father;
+       t1->father = nullptr;
+   }
+   else
+   {
+       delete t1->mother;
+       t1->mother = nullptr;
+   }
 
 
 }
@@ -186,12 +178,3 @@ void Tree::display()
     print(this,0);
 }
 
-Tree* del(Tree* cur)
-{
-   if(cur == nullptr)
-     return nullptr;
-  del(cur->father);
-  del(cur->mother);
-  delete cur;
-  return nullptr;
-}
