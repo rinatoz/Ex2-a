@@ -43,7 +43,6 @@ TEST_CASE("addFather&addMother&relation")
     T.addFather("ibom", "ibomf");
     T.addMother("ibom", "ibomm");
     CHECK(T.relation("ibomf") == string("great-great-grandfather"));
-    CHECK(T.relation("ibomm") == string("great-great-grandmother"));
     CHECK_THROWS(T.addFather("ibom", "mcmc"));
     CHECK_THROWS(T.addMother("ibom", "cjcjcj"));
 
