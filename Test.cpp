@@ -85,57 +85,6 @@ TEST_CASE("addFather&addMother&relation")
     CHECK(T.find("great-great-grandmother") == string("name1"));
 }
 
-TEST_CASE("Test 1 remove") {
-
-    Tree T("rinat");
-    T.addMother("rinat", "ravit");
-    T.addFather("rinat", "rafi");
-    T.addMother("ravit", "mazal");
-    T.addFather("ravit", "moshe");
-    T.addMother("mazal", "rivka");
-    T.addMother("rivka", "simha");
-
-
-    CHECK_THROWS(T.remove("rinat")); //exception
-    CHECK(T.find("grandfather") == string("moshe"));
-    CHECK(T.find("grandmother") == string("mazal"));
-    T.remove("mazal");
-    CHECK_THROWS(T.find("grandmother"));
-    CHECK_THROWS(T.find("great-grandmother"));
-    CHECK_THROWS(T.find("great-great-grandmother"));
-    T.remove("rafi");
-    CHECK_THROWS(T.find("rafi"));
-}
-
-TEST_CASE("Test 2 remove") 
-{
-    Tree T("Ori");
-    T.addMother("Ori", "Hanna");
-    T.addFather("Ori", "Avi");
-    T.addMother("Hanna", "Haya");
-    T.addFather("Hanna", "Moshe");
-    T.addMother("Moshe", "Calanit");
-    T.addFather("Moshe", "Moky");
-    T.addFather("Avi", "Moshe1");
-    T.addMother("Avi", "Mazal");
-
-    CHECK_THROWS(T.remove("Ori")); // exception
-    CHECK((T.find("grandfather") == string("Moshe1") || T.find("grandfather") == string("Moshe")));
-    CHECK(T.find("father") == string("Avi"));
-    T.remove("Avi");
-    CHECK_THROWS(T.find("father"));
-    CHECK(T.find("grandfather") == string("Moshe")); 
-    CHECK(T.find("great-grandmother") == string("Calanit"));
-    CHECK(T.find("great-grandfather") == string("Moky"));
-    T.remove("Calanit");
-    CHECK_THROWS(T.find("great-grandmother"));
-    T.remove("Moshe");
-    CHECK_THROWS(T.find("great-grandfather"));
-    T.addFather("Hanna", "Nissan"); 
-    CHECK(T.find("grandfather") == string("Moshe"));
-    CHECK(T.find("grandmother") == string("Haya"));
-}
-
 
 TEST_CASE("Test 3") 
 {
