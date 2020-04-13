@@ -148,9 +148,15 @@ void Tree::remove(string name)
    string name1 = t->son->child;
    Tree* t1 = findchild(this, name1);
    if (t->gender == "male")
+   {
        t->father = nullptr;
+       delete t->father;
+   }
    else
+   {
        t->mother = nullptr;
+       delete t->mother;
+   }
 }
 
 void Tree::print(Tree* root,int space) {
