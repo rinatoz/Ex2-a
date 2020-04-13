@@ -149,13 +149,11 @@ void Tree::remove(string name)
    Tree* t1 = findchild(this, name1);
    if (t->gender == "male")
    {
-       t->father = nullptr;
-       delete t->father;
+       del(t->father);
    }
    else
    {
-       t->mother = nullptr;
-       delete t->mother;
+       del(t->mother);
    }
 }
 
@@ -176,10 +174,12 @@ void Tree::display()
     print(this,0);
 }
 
-bool replace(std::string& str, const std::string& from, const std::string& to) {
-    size_t start_pos = str.find(from);
-    if (start_pos == std::string::npos)
-        return false;
-    str.replace(start_pos, from.length(), to);
-    return true;
+Node* del(Node* cur)
+{
+   if(cur == nullptr)
+     return nullptr;
+  del(cur->father);
+  del(cur->mother);
+  delete current;
+  return nullptr;
 }
