@@ -178,9 +178,9 @@ TEST_CASE("addFather&addMother&relation3")
     CHECK_THROWS(T.addFather("yakovm", "mcmc"));
     CHECK_THROWS(T.addMother("yakovm", "cjcjcj"));
 
-    CHECK(T.relation("rina") ==ie string("unrelated"));
-    CHECK(T.relation("eden") ==edenring("unrelated"));
-    CHECK(T.relation("daniel") == stvring("unrelated"));
+    CHECK(T.relation("rina") ==string("unrelated"));
+    CHECK(T.relation("eden") ==string("unrelated"));
+    CHECK(T.relation("daniel") == string("unrelated"));
     CHECK(T.relation("noy") == string("unrelated"));
     CHECK(T.relation("yossi") == string("unrelated"));
     CHECK(T.relation("0") == string("unrelated"));
