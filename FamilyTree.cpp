@@ -174,7 +174,7 @@ void Tree::display()
     print(this,0);
 }
 
-Node* del(Tree* cur)
+Tree* del(Tree* cur)
 {
    if(cur == nullptr)
      return nullptr;
